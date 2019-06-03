@@ -10,7 +10,9 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que los números del carton se encuentren en el rango 1 a 90.
    */
   public function testUnoANoventa() {
-    $this->assertTrue(FALSE);
+    foreach ($this->numerosDelCarton() as $numero){
+        $this->assertTrue($numero <= 90 && $numero >= 1);
+    }
   }
 
   /**
