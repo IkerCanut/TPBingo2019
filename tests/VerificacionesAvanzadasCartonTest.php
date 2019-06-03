@@ -11,7 +11,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    */
   public function testUnoANoventa() {
     $carton = new CartonEjemplo();
-    foreach ($carton->numerosDelCarton() as $numero){
+    foreach ($carton->numerosDelCarton() as $numero) {
         $this->assertTrue($numero <= 90 && $numero >= 1);
     }
   }
@@ -56,7 +56,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
     foreach ($carton->columnas() as $columna) {
         $contadorDeNumeros = 0;
         foreach ($columna as $numero) {
-            if ($numero != 0){
+            if ($numero != 0) {
                 $contadorDeNumeros++;
             }
         }
@@ -78,7 +78,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
                 $contadorDeNumeros++;
             }
         }
-        if ($contadorDeNumeros == 1){
+        if ($contadorDeNumeros == 1) {
             $contadorColumnasConUnElemento++;
         }
     }
@@ -93,9 +93,9 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
     $carton = new CartonEjemplo();
     $columnas = $carton->columnas();
     for($i=0, $j=1; $j<=9; $i++, $j++) {
-        foreach ($columnas[$i] as $NumeroColumnaIzquiera) {
+        foreach ($columnas[$i] as $NumeroColumnaIzquierda) {
             foreach ($columnas[$j] as $NumeroColumnaDerecha) {
-                if ($NumeroColumnaIzquiera != 0 && $NumeroColumnaDerecha != 0) {
+                if ($NumeroColumnaIzquierda != 0 && $NumeroColumnaDerecha != 0) {
                     $this->assertTrue($NumeroColumnaDerecha > $NumeroColumnaIzquierda);
                 }
             }
@@ -107,7 +107,18 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que en una fila no existan más de dos celdas vacias consecutivas.
    */
   public function testFilasConVaciosUniformes() {
-    $this->assertTrue(FALSE);
+    $carton = new CartonEjemplo();
+    foreach($carton->filas() as $fila) {
+        $contadorDeCerosConsecutivos = 0;
+        foreach($fila as $numero) {
+            if ($numero == 0){
+                $contadorDeCerosConsecutivos++;
+            } else {
+                $contadorDeCerosConsecutivos = 0;
+            }
+            $this->assertTrue($contadorDeCerosConsecutivos < 3);
+        }
+    }
   }
 
 }
