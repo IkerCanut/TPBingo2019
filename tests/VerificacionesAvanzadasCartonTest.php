@@ -69,7 +69,20 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * ocupada.
    */
   public function testTresCeldasIndividuales() {
-    $this->assertTrue(FALSE);
+    $carton = new CartonEjemplo();
+    $contadorColumnasConUnElemento = 0;
+    foreach ($carton->columnas() as $columna) {
+        $contadorDeNumeros = 0;
+        foreach ($columna as $numero) {
+            if ($numero != 0){
+                $contadorDeNumeros++;
+            }
+        }
+        if ($contadorDeNumerosPorColumna == 1){
+            $contadorColumnasConUnElemento++;
+        }
+    }
+    $this->assertEquals($contadorColumnasConUnElemento, 3);
   }
 
   /**
