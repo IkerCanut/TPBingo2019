@@ -52,7 +52,16 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que no haya columnas de un carton con tres celdas ocupadas.
    */
   public function testColumnaCompleta() {
-    $this->assertTrue(FALSE);
+    $carton = new CartonEjemplo();
+    foreach ($carton->columnas() as $columna) {
+        $contadorDeNumeros = 0;
+        foreach ($columna as $numero) {
+            if ($numero != 0){
+                $contadorDeNumeros++;
+            }
+        }
+        $this->assertTrue($contadorDeNumeros < 3);
+    }
   }
 
   /**
