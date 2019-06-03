@@ -3,7 +3,7 @@
 namespace Bingo;
 
 /**
- * Este es un Carton de Ejemplo.
+ * Este es un Carton de Ejemplo...
  */
 class CartonEjemplo implements CartonInterface {
 
