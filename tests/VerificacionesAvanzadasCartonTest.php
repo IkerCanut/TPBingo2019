@@ -16,7 +16,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que los números del carton se encuentren en el rango 1 a 90.
    */
   public function testUnoANoventa() {
-    foreach ($this->carton->numerosDelCarton() as $numero) {
+    foreach ($this->$carton->numerosDelCarton() as $numero) {
         $this->assertTrue($numero <= 90 && $numero >= 1);
     }
   }
@@ -25,7 +25,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que cada fila de un carton tenga exactamente 5 celdas ocupadas.
    */
   public function testCincoNumerosPorFila() {
-    foreach ($this->carton->filas() as $fila) {
+    foreach ($this->$carton->filas() as $fila) {
         $contadorDeNumeros = 0;
         foreach ($fila as $numero) {
             if ($numero != 0){
@@ -40,7 +40,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que para cada columna, haya al menos una celda ocupada.
    */
   public function testColumnaNoVacia() {
-    foreach ($this->carton->columnas() as $columna) {
+    foreach ($this->$carton->columnas() as $columna) {
         $contadorDeNumeros = 0;
         foreach ($columna as $numero) {
             if ($numero != 0){
@@ -55,7 +55,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que no haya columnas de un carton con tres celdas ocupadas.
    */
   public function testColumnaCompleta() {
-    foreach ($this->carton->columnas() as $columna) {
+    foreach ($this->$carton->columnas() as $columna) {
         $contadorDeNumeros = 0;
         foreach ($columna as $numero) {
             if ($numero != 0) {
@@ -72,7 +72,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    */
   public function testTresCeldasIndividuales() {
     $contadorColumnasConUnElemento = 0;
-    foreach ($this->carton->columnas() as $columna) {
+    foreach ($this->$carton->columnas() as $columna) {
         $contadorDeNumeros = 0;
         foreach ($columna as $numero) {
             if ($numero != 0){
@@ -91,7 +91,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * las columnas a la derecha.
    */
   public function testNumerosIncrementales() {
-    $columnas = $this->carton->columnas();
+    $columnas = $this->$carton->columnas();
     for($i=0, $j=1; $j<=8; $i++, $j++) {
         foreach ($columnas[$i] as $NumeroColumnaIzquierda) {
             foreach ($columnas[$j] as $NumeroColumnaDerecha) {
@@ -107,7 +107,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que en una fila no existan más de dos celdas vacias consecutivas.
    */
   public function testFilasConVaciosUniformes() {
-    foreach($this->carton->filas() as $fila) {
+    foreach($this->$carton->filas() as $fila) {
         $contadorDeCerosConsecutivos = 0;
         foreach($fila as $numero) {
             if ($numero == 0){
