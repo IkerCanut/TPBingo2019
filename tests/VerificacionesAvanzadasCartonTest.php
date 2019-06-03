@@ -10,7 +10,8 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que los números del carton se encuentren en el rango 1 a 90.
    */
   public function testUnoANoventa() {
-    foreach ($this->numerosDelCarton() as $numero){
+    $carton = new CartonEjemplo();
+    foreach ($carton->numerosDelCarton() as $numero){
         $this->assertTrue($numero <= 90 && $numero >= 1);
     }
   }
@@ -19,7 +20,16 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que cada fila de un carton tenga exactamente 5 celdas ocupadas.
    */
   public function testCincoNumerosPorFila() {
-    $this->assertTrue(FALSE);
+    $carton = new CartonEjemplo();
+    foreach ($carton->filas() as $fila) {
+        $contadorDeNumeros = 0;
+        foreach ($fila as $numero) {
+            if ($numero != 0){
+                $contadorDeNumeros++;
+            }
+        }
+        $this->assertEquals($contadorDeNumeros, 5);
+    }
   }
 
   /**
