@@ -92,7 +92,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
   public function testNumerosIncrementales() {
     $carton = new CartonEjemplo();
     $columnas = $carton->columnas();
-    for($i=0, $j=1; $j<=9; $i++, $j++) {
+    for($i=0, $j=1; $j<=8; $i++, $j++) {
         foreach ($columnas[$i] as $NumeroColumnaIzquierda) {
             foreach ($columnas[$j] as $NumeroColumnaDerecha) {
                 if ($NumeroColumnaIzquierda != 0 && $NumeroColumnaDerecha != 0) {
