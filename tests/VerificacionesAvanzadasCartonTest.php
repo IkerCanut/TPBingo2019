@@ -78,7 +78,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
                 $contadorDeNumeros++;
             }
         }
-        if ($contadorDeNumerosPorColumna == 1){
+        if ($contadorDeNumeros == 1){
             $contadorColumnasConUnElemento++;
         }
     }
@@ -90,7 +90,17 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * las columnas a la derecha.
    */
   public function testNumerosIncrementales() {
-    $this->assertTrue(FALSE);
+    $carton = new CartonEjemplo();
+    $columnas = $carton->columnas();
+    for($i=0, $j=1; $j<=9; $i++, $j++) {
+        foreach ($columnas[$i] as $NumeroColumnaIzquiera) {
+            foreach ($columnas[$j] as $NumeroColumnaDerecha) {
+                if ($NumeroColumnaIzquiera != 0 && $NumeroColumnaDerecha != 0) {
+                    $this->assertTrue($NumeroColumnaDerecha > $NumeroColumnaIzquierda);
+                }
+            }
+        }
+    }
   }
 
   /**
