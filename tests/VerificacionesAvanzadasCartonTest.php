@@ -10,28 +10,28 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * Verifica que los números del carton se encuentren en el rango 1 a 90.
    */
   public function testUnoANoventa() {
-    $this->assertTrue(TRUE);
+    $this->assertTrue(FALSE);
   }
 
   /**
    * Verifica que cada fila de un carton tenga exactamente 5 celdas ocupadas.
    */
   public function testCincoNumerosPorFila() {
-    $this->assertTrue(TRUE);
+    $this->assertTrue(FALSE);
   }
 
   /**
    * Verifica que para cada columna, haya al menos una celda ocupada.
    */
   public function testColumnaNoVacia() {
-    $this->assertTrue(TRUE);
+    $this->assertTrue(FALSE);
   }
 
   /**
    * Verifica que no haya columnas de un carton con tres celdas ocupadas.
    */
   public function testColumnaCompleta() {
-    $this->assertTrue(TRUE);
+    $this->assertTrue(FALSE);
   }
 
   /**
@@ -39,7 +39,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * ocupada.
    */
   public function testTresCeldasIndividuales() {
-    $this->assertTrue(TRUE);
+    $this->assertTrue(FALSE);
   }
 
   /**
@@ -47,14 +47,14 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
    * las columnas a la derecha.
    */
   public function testNumerosIncrementales() {
-    $this->assertTrue(TRUE);
+    $this->assertTrue(FALSE);
   }
 
   /**
    * Verifica que en una fila no existan más de dos celdas vacias consecutivas.
    */
   public function testFilasConVaciosUniformes() {
-    $this->assertTrue(TRUE);
+    $this->assertTrue(FALSE);
   }
 
 }
