@@ -29,17 +29,17 @@ class CartonJs implements CartonInterface {
    * {@inheritdoc}
    */
   public function columnas() {
-    return [
-      [4,0,1],
-      [0,13,0],
-      [24,0,27],
-      [31,39,0],
-      [0,48,0],
-      [0,0,50],
-      [63,66,0],
-      [0,72,73],
-      [80,0,86],
-    ];
+    $cols = [];
+    $numerosCarton = $this->numeros_carton;
+    
+    for ($i=0; $i<9; $i++) {
+        $cols[] = [];
+        for ($j=0; $j<3; $j++) {
+            $cols[$i][] = $numerosCarton[$j][$i];
+        }
+    }
+    
+    return $cols;
   }
 
   /**
