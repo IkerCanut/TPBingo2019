@@ -22,11 +22,7 @@ class CartonJs implements CartonInterface {
    * {@inheritdoc}
    */
   public function filas() {
-    return [
-      [4,0,24,31,0,0,63,0,80],
-      [0,13,0,39,48,0,66,72,0],
-      [1,0,27,0,0,50,0,73,86],
-    ];
+    return $this->numeros_carton;
   }
 
   /**
