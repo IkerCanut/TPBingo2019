@@ -6,13 +6,8 @@ use PHPUnit\Framework\TestCase;
 
 class VerificacionesAvanzadasCartonTest extends TestCase {
 
-  protected $carton;
-  
-  public function __construct(){
-    $carton = new CartonEjemplo();
-  }
-
-  /**
+   /**
+   * @dataProvider provider
    * Verifica que los números del carton se encuentren en el rango 1 a 90.
    */
   public function testUnoANoventa() {
@@ -22,6 +17,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
   }
 
   /**
+   * @dataProvider provider
    * Verifica que cada fila de un carton tenga exactamente 5 celdas ocupadas.
    */
   public function testCincoNumerosPorFila() {
@@ -37,6 +33,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
   }
 
   /**
+   * @dataProvider provider
    * Verifica que para cada columna, haya al menos una celda ocupada.
    */
   public function testColumnaNoVacia() {
@@ -52,6 +49,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
   }
 
   /**
+   * @dataProvider provider
    * Verifica que no haya columnas de un carton con tres celdas ocupadas.
    */
   public function testColumnaCompleta() {
@@ -67,6 +65,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
   }
 
   /**
+   * @dataProvider provider
    * Verifica que solo hay exactamente tres columnas que tienen solo una celda
    * ocupada.
    */
@@ -87,6 +86,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
   }
 
   /**
+   * @dataProvider provider
    * Verifica que los números de las columnas izquierdas son menores que los de
    * las columnas a la derecha.
    */
@@ -104,6 +104,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
   }
 
   /**
+   * @dataProvider provider
    * Verifica que en una fila no existan más de dos celdas vacias consecutivas.
    */
   public function testFilasConVaciosUniformes() {
@@ -119,5 +120,11 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
         }
     }
   }
-
+  
+  public function provider() {
+    return array(
+        [new CartonEjemplo()],
+        [new CartonJS()]
+    );
+  }
 }
