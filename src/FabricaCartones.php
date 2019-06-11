@@ -71,7 +71,19 @@ class FabricaCartones {
   }
 
   protected function validarColumnaCompleta($carton) {
-
+    $bandera = TRUE;
+    foreach ($carton->columnas() as $columna) {
+        $contadorDeNumeros = 0;
+        foreach ($columna as $numero) {
+            if ($numero != 0) {
+                $contadorDeNumeros++;
+            }
+        }
+        if ($contadorDeNumeros >= 3) {
+            $bandera = FALSE;
+        }
+    }
+    return $bandera;
   }
 
   protected function validarTresCeldasIndividuales($carton) {
