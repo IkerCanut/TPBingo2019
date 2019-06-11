@@ -87,7 +87,24 @@ class FabricaCartones {
   }
 
   protected function validarTresCeldasIndividuales($carton) {
-
+    $contadorColumnasConUnElemento = 0;
+    foreach ($carton->columnas() as $columna) {
+        $contadorDeNumeros = 0;
+        foreach ($columna as $numero) {
+            if ($numero != 0){
+                $contadorDeNumeros++;
+            }
+        }
+        if ($contadorDeNumeros == 1) {
+            $contadorColumnasConUnElemento++;
+        }
+    }
+    if ($contadorColumnasConUnElemento == 3) {
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
   }
 
   protected function validarNumerosIncrementales($carton) {
