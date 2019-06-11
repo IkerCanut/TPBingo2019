@@ -2,7 +2,7 @@
 
 namespace Bingo;
 
-class FabricaCartones {
+class FabricaCartones implements CartonInterface {
 
   public function generarCarton() {
     // INTENTO
