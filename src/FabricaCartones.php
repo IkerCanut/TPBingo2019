@@ -5,6 +5,7 @@ namespace Bingo;
 class FabricaCartones {
 
   public function generarCarton() {
+    // INTENTO
     while (TRUE) {
         $carton = new Carton($this->intentoCarton());
         if ($this->cartonEsValido($carton)) {
