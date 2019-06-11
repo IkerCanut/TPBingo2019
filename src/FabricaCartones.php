@@ -7,13 +7,8 @@ class FabricaCartones {
   public function generarCarton() {
     // INTENTO
     //for($i=0; $i<10; $i++) {
-        //$carton = new Carton($this->intentoCarton());
+        $carton = new Carton($this->intentoCarton());
         //if ($this->cartonEsValido($carton)) {
-          $carton = [
-  [ 7,  0, 23, 38,  0, 56, 65,  0,  0, ],
-  [ 0, 14,  0, 34,  0, 52, 69,  0, 87, ],
-  [ 1, 19,  0,  0, 41,  0,  0, 76, 86, ],
-];
           return $carton->filas();
         //}
     //}

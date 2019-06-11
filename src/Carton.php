@@ -13,20 +13,20 @@ class Carton implements CartonInterface {
    /**
    * {@inheritdoc}
    */
-  public function filas() {
+  public function columnas() {
     return $this->numeros_carton;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function columnas() {
-    $cols = [];
+  public function filas() {
+    $fls = [];
     
-    $filas = $this->filas();
-    $cols = array_map(null, $filas[0], $filas[1], $filas[2]);
+    $columnas = $this->columnas();
+    $fls = array_map(null, $columnas[0], $columnas[1], $columnas[2]);
     
-    return $cols;
+    return $fls;
   }
   
     /**
