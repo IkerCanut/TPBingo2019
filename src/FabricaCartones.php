@@ -6,12 +6,12 @@ class FabricaCartones {
 
   public function generarCarton() {
     // INTENTO
-    for($i=0; $i<10; $i++) {
+    //for($i=0; $i<10; $i++) {
         $carton = new Carton($this->intentoCarton());
-        if ($this->cartonEsValido($carton)) {
+        //if ($this->cartonEsValido($carton)) {
           return $carton->filas();
-        }
-    }
+        //}
+    //}
   }
 
   protected function cartonEsValido($carton) {
