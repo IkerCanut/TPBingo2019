@@ -15,7 +15,7 @@ class FabricaCartones {
   }
 
   protected function cartonEsValido($carton) {
-    if ($this->validarUnoANoventa($carton) &&                                          // THIS ????
+    if ($this->validarUnoANoventa($carton) &&       // THIS ????
       $this->validarCincoNumerosPorFila($carton) &&
       $this->validarColumnaNoVacia($carton) &&
       $this->validarColumnaCompleta($carton) &&
