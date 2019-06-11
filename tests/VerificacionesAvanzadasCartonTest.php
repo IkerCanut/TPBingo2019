@@ -125,7 +125,7 @@ class VerificacionesAvanzadasCartonTest extends TestCase {
     return array(
         // [new CartonEjemplo()],
         // [new CartonJs()]    
-        [new FabricaCarton()->generarCarton()]
+        [new FabricaCartones()->generarCarton()]
     );
   }
 }
