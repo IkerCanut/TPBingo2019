@@ -124,7 +124,20 @@ class FabricaCartones {
   }
 
   protected function validarFilasConVaciosUniformes($carton) {
-
+    $bandera = TRUE;
+    foreach($carton->filas() as $fila) {
+        $contadorDeCerosConsecutivos = 0;
+        foreach($fila as $numero) {
+            if ($numero == 0){
+                $contadorDeCerosConsecutivos++;
+            } else {
+                $contadorDeCerosConsecutivos = 0;
+            }
+            if ($contadorDeCerosConsecutivos >= 3) {
+                $bandera = FALSE;
+            }
+        }
+    }
   }
 
     // NO TOCAR
