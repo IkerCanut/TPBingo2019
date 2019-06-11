@@ -108,7 +108,19 @@ class FabricaCartones {
   }
 
   protected function validarNumerosIncrementales($carton) {
-
+    $bandera = TRUE;
+    $columnas = $carton->columnas();
+    for($i=0, $j=1; $j<=8; $i++, $j++) {
+        foreach ($columnas[$i] as $NumeroColumnaIzquierda) {
+            foreach ($columnas[$j] as $NumeroColumnaDerecha) {
+                if ($NumeroColumnaIzquierda != 0 && $NumeroColumnaDerecha != 0) {
+                    if ($NumeroColumnaDerecha <= $NumeroColumnaIzquierda) {
+                        $bandera = FALSE;
+                    }
+                }
+            }
+        }
+    }
   }
 
   protected function validarFilasConVaciosUniformes($carton) {
