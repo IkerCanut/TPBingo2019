@@ -2,7 +2,7 @@
 
 namespace Bingo;
 
-class FabricaCartones implements CartonInterface {
+class FabricaCartones {
 
   public function generarCarton() {
     // INTENTO
@@ -15,7 +15,7 @@ class FabricaCartones implements CartonInterface {
   }
 
   protected function cartonEsValido($carton) {
-    if ($this->validarUnoANoventa($carton) &&       // THIS ????
+    if ($this->validarUnoANoventa($carton) &&
       $this->validarCincoNumerosPorFila($carton) &&
       $this->validarColumnaNoVacia($carton) &&
       $this->validarColumnaCompleta($carton) &&
