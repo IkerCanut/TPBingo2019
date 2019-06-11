@@ -28,7 +28,13 @@ class FabricaCartones {
   }
 
   protected function validarUnoANoventa($carton) {
-
+    $bandera = TRUE;
+    foreach ($carton->numerosDelCarton() as $numero) {
+        if ($numero > 90 && $numero < 1) {
+            $bandera = FALSE;
+        }
+    }
+    return $bandera;
   }
 
   protected function validarCincoNumerosPorFila($carton) {
