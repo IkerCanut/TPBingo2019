@@ -29,17 +29,15 @@ class FabricaCartones {
   }
 
   protected function validarUnoANoventa($carton) {
-    $bandera = TRUE;
     foreach ($carton->numerosDelCarton() as $numero) {
         if ($numero > 90 && $numero < 1) {
-            $bandera = FALSE;
+            return FALSE;
         }
     }
-    return $bandera;
+    return TRUE;
   }
 
   protected function validarCincoNumerosPorFila($carton) {
-    $bandera = TRUE;
     foreach ($carton->filas() as $fila) {
         $contadorDeNumeros = 0;
         foreach ($fila as $numero) {
@@ -48,15 +46,13 @@ class FabricaCartones {
             }
         }
         if ($contadorDeNumeros != 5) {
-            $bandera = FALSE;
+            return FALSE;
         }
     }
-    
-    return $bandera;
+    return TRUE;
   }
 
   protected function validarColumnaNoVacia($carton) {
-    $bandera = TRUE;
     foreach ($carton->columnas() as $columna) {
         $contadorDeNumeros = 0;
         foreach ($columna as $numero) {
@@ -65,14 +61,13 @@ class FabricaCartones {
             }
         }
         if ($contadorDeNumeros == 0) {
-            $bandera = FALSE;        
+            return FALSE;     
         }
     }
-    return $bandera;
+    return TRUE;
   }
 
   protected function validarColumnaCompleta($carton) {
-    $bandera = TRUE;
     foreach ($carton->columnas() as $columna) {
         $contadorDeNumeros = 0;
         foreach ($columna as $numero) {
@@ -81,10 +76,10 @@ class FabricaCartones {
             }
         }
         if ($contadorDeNumeros >= 3) {
-            $bandera = FALSE;
+            return FALSE;
         }
     }
-    return $bandera;
+    return TRUE;
   }
 
   protected function validarTresCeldasIndividuales($carton) {
@@ -109,23 +104,22 @@ class FabricaCartones {
   }
 
   protected function validarNumerosIncrementales($carton) {
-    $bandera = TRUE;
     $columnas = $carton->columnas();
     for($i=0, $j=1; $j<=8; $i++, $j++) {
         foreach ($columnas[$i] as $NumeroColumnaIzquierda) {
             foreach ($columnas[$j] as $NumeroColumnaDerecha) {
                 if ($NumeroColumnaIzquierda != 0 && $NumeroColumnaDerecha != 0) {
                     if ($NumeroColumnaDerecha <= $NumeroColumnaIzquierda) {
-                        $bandera = FALSE;
+                        return FALSE;
                     }
                 }
             }
         }
     }
+    return TRUE;
   }
 
   protected function validarFilasConVaciosUniformes($carton) {
-    $bandera = TRUE;
     foreach($carton->filas() as $fila) {
         $contadorDeCerosConsecutivos = 0;
         foreach($fila as $numero) {
@@ -135,10 +129,11 @@ class FabricaCartones {
                 $contadorDeCerosConsecutivos = 0;
             }
             if ($contadorDeCerosConsecutivos >= 3) {
-                $bandera = FALSE;
+                return FALSE;
             }
         }
     }
+    return TRUE;
   }
 
     // NO TOCAR
