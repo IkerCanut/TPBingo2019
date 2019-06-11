@@ -55,7 +55,19 @@ class FabricaCartones {
   }
 
   protected function validarColumnaNoVacia($carton) {
-
+    $bandera = TRUE;
+    foreach ($carton->columnas() as $columna) {
+        $contadorDeNumeros = 0;
+        foreach ($columna as $numero) {
+            if ($numero != 0){
+                $contadorDeNumeros++;
+            }
+        }
+        if ($contadorDeNumeros == 0) {
+            $bandera = FALSE;        
+        }
+    }
+    return $bandera;
   }
 
   protected function validarColumnaCompleta($carton) {
