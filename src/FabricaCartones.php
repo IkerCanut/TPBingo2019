@@ -38,8 +38,8 @@ class FabricaCartones {
   }
 
   protected function validarCincoNumerosPorFila($carton) {
+    $bandera = TRUE;
     foreach ($carton->filas() as $fila) {
-        $bandera = TRUE;
         $contadorDeNumeros = 0;
         foreach ($fila as $numero) {
             if ($numero != 0){
