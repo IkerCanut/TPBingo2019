@@ -5,10 +5,11 @@ namespace Bingo;
 class FabricaCartones {
 
   public function generarCarton() {
-    for($i=0; $i<10; $i++) {
-        $carton = new Carton($this->intentoCarton());
-        if ($this->cartonEsValido($carton)) {
-          return $carton->filas();
+    while(1) {
+        $carton = (new Carton($this->intentoCarton()))->columnas;
+        $aux = array_map(null,$carton[0],$carton[1],$carton[2],$carton[3],$carton[4],$carton[5],$carton[6],$carton[7],$carton[8]);
+        if ($this->cartonEsValido($aux)) {
+          return ($aux);
         }
     }
   }
